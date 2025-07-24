@@ -1,1 +1,1 @@
-backend project with javascript tech stack.
+full backend project with javascript tech stack.
