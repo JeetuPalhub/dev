@@ -1,1 +1,1 @@
-full backend project with javascript tech stack.
+Dev tube is a backend project using mern tech stack.
