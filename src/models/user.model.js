@@ -57,7 +57,9 @@ const userSchema  = new Schema(
 
 
 userSchema.pre("save", async function (next) {
-    if(this.isModified("password")) return next();
+    // Only hash when the password actually changed — otherwise saves that touch
+    // other fields (e.g. storing a refresh token on login) would re-hash it.
+    if (!this.isModified("password")) return next();
 
     this.password = await bcrypt.hash(this.password, 10)
     next()
@@ -82,7 +84,7 @@ userSchema.methods.generateAccessToken = function() {
         }
     )
 }
-userSchema.methods.generateRefreshtoken = function() {
+userSchema.methods.generateRefreshToken = function() {
     return jwt.sign(
         {
             _id: this._id,

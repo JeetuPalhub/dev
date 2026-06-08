@@ -1,11 +1,31 @@
-# 📺 DevTube — Video Platform Backend
+# 📺 DevTube — Full-Stack Video Platform
 
-> A production-grade YouTube-like backend built with Node.js, Express, MongoDB, and Cloudinary — featuring JWT auth, video uploads, subscriptions, watch history, and aggregation pipelines.
+> A YouTube-like full-stack app — Node.js/Express/MongoDB/Cloudinary backend (JWT auth, video uploads, subscriptions, comments, likes, playlists, watch history, aggregation pipelines) with a React + Tailwind frontend.
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
+
+---
+
+## 📸 Screenshots (React frontend)
+
+| Home Feed | Watch + Comments |
+|-----------|------------------|
+| ![Home](frontend/screenshots/home.png) | ![Video](frontend/screenshots/video.png) |
+
+A **Vite + React + Tailwind** frontend lives in [`/frontend`](frontend) — a YouTube-style
+video feed with search, a login page, and a watch page with the video player, like button
+and comments, all wired to this API.
+
+```bash
+cd frontend
+npm install
+cp .env.example .env   # point VITE_API_URL at the backend
+npm run dev            # http://localhost:5173
+```
 
 ---
 

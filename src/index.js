@@ -1,11 +1,9 @@
-// require('dotenv').config({path: './env'})
-import dotenv from "dotenv"
+// Load env FIRST — ESM imports are hoisted, so app.js (which reads CORS_ORIGIN
+// at module load) must run after dotenv has populated process.env.
+import "dotenv/config";
+
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
-
-dotenv.config({
-    path: './.env'
-})
 
 
 
