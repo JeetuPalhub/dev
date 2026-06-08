@@ -39,6 +39,53 @@
 | GET | `/api/v1/users/history` | 🔒 | Get watch history |
 | GET | `/api/v1/healthcheck` | Public | Health check |
 
+### Videos — `/api/v1/videos`
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/` | Public | List videos (search, sort, paginate) |
+| POST | `/` | 🔒 | Publish video (`videoFile` + `thumbnail` upload) |
+| GET | `/:videoId` | Public | Get a video (increments views) |
+| PATCH | `/:videoId` | 🔒 | Update title/description/thumbnail |
+| DELETE | `/:videoId` | 🔒 | Delete a video |
+| PATCH | `/toggle/publish/:videoId` | 🔒 | Toggle publish status |
+
+### Subscriptions — `/api/v1/subscriptions`
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/c/:channelId` | 🔒 | Toggle subscribe/unsubscribe |
+| GET | `/c/:channelId` | 🔒 | List a channel's subscribers |
+| GET | `/u/:subscriberId` | 🔒 | List channels a user subscribes to |
+
+### Comments — `/api/v1/comments`
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/:videoId` | Public | List comments on a video (paginated) |
+| POST | `/:videoId` | 🔒 | Add a comment |
+| PATCH | `/c/:commentId` | 🔒 | Edit own comment |
+| DELETE | `/c/:commentId` | 🔒 | Delete own comment |
+
+### Likes — `/api/v1/likes`
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/toggle/v/:videoId` | 🔒 | Like/unlike a video |
+| POST | `/toggle/c/:commentId` | 🔒 | Like/unlike a comment |
+| GET | `/videos` | 🔒 | List videos you liked |
+
+### Playlists — `/api/v1/playlists`
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/` | 🔒 | Create a playlist |
+| GET | `/user/:userId` | 🔒 | List a user's playlists |
+| GET | `/:playlistId` | 🔒 | Get a playlist with videos |
+| PATCH | `/add/:videoId/:playlistId` | 🔒 | Add a video |
+| PATCH | `/remove/:videoId/:playlistId` | 🔒 | Remove a video |
+| DELETE | `/:playlistId` | 🔒 | Delete a playlist |
+
 ---
 
 ## 🗂️ Project Structure
